@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A802A1183E800B0FFD1 /* SessionManager.swift */; };
 		E92A5A832A11860800B0FFD1 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A822A11860800B0FFD1 /* MainAppView.swift */; };
+		E92A5A902A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92A5A8F2A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf */; };
+		E92A5A922A12BB8800B0FFD1 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92A5A912A12BB8800B0FFD1 /* Karla-VariableFont_wght.ttf */; };
+		E92A5A942A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A932A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift */; };
+		E92A5A962A12DECC00B0FFD1 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */; };
+		E92A5A982A12E0CC00B0FFD1 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */; };
+		E92A5A9A2A12E23400B0FFD1 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A992A12E23400B0FFD1 /* PasswordView.swift */; };
+		E92A5A9C2A12ECDB00B0FFD1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */; };
+		E92A5A9E2A12EE9D00B0FFD1 /* RegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A9D2A12EE9D00B0FFD1 /* RegistrationManager.swift */; };
 		E980FCDE2A003AA900D8840B /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980FCDD2A003AA900D8840B /* RestaurantApp.swift */; };
 		E980FCE22A003AAB00D8840B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE12A003AAB00D8840B /* Assets.xcassets */; };
 		E980FCE52A003AAB00D8840B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE42A003AAB00D8840B /* Preview Assets.xcassets */; };
 		E980FCEC2A02898000D8840B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980FCEB2A02898000D8840B /* OnboardingView.swift */; };
-		E9E36BED2A0FC4920045ECC9 /* WebSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BEC2A0FC4920045ECC9 /* WebSheetView.swift */; };
+		E9E36BED2A0FC4920045ECC9 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */; };
 		E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */; };
-		E9E36BF12A1045310045ECC9 /* OnboardingHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF02A1045310045ECC9 /* OnboardingHomeView.swift */; };
 		E9E36BF32A1156CB0045ECC9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF22A1156CB0045ECC9 /* HomeView.swift */; };
 		E9E36BF52A1158B60045ECC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF42A1158B50045ECC9 /* LoginView.swift */; };
 		E9E36BF82A117A7C0045ECC9 /* LittleLemonButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */; };
@@ -25,14 +32,22 @@
 /* Begin PBXFileReference section */
 		E92A5A802A1183E800B0FFD1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		E92A5A822A11860800B0FFD1 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		E92A5A892A12B72700B0FFD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E92A5A8F2A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		E92A5A912A12BB8800B0FFD1 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		E92A5A932A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonTextStyles.swift; sourceTree = "<group>"; };
+		E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		E92A5A992A12E23400B0FFD1 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E92A5A9D2A12EE9D00B0FFD1 /* RegistrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationManager.swift; sourceTree = "<group>"; };
 		E980FCDA2A003AA900D8840B /* littlelemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = littlelemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E980FCDD2A003AA900D8840B /* RestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp.swift; sourceTree = "<group>"; };
 		E980FCE12A003AAB00D8840B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E980FCE42A003AAB00D8840B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E980FCEB2A02898000D8840B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		E9E36BEC2A0FC4920045ECC9 /* WebSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSheetView.swift; sourceTree = "<group>"; };
+		E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
-		E9E36BF02A1045310045ECC9 /* OnboardingHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHomeView.swift; sourceTree = "<group>"; };
 		E9E36BF22A1156CB0045ECC9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E9E36BF42A1158B50045ECC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonButtonStyle.swift; sourceTree = "<group>"; };
@@ -50,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E92A5A842A12B41500B0FFD1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5A8F2A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf */,
+				E92A5A912A12BB8800B0FFD1 /* Karla-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E980FCD12A003AA900D8840B = {
 			isa = PBXGroup;
 			children = (
@@ -69,16 +93,22 @@
 		E980FCDC2A003AA900D8840B /* littlelemon */ = {
 			isa = PBXGroup;
 			children = (
+				E92A5A892A12B72700B0FFD1 /* Info.plist */,
 				E980FCDD2A003AA900D8840B /* RestaurantApp.swift */,
 				E92A5A822A11860800B0FFD1 /* MainAppView.swift */,
-				E92A5A802A1183E800B0FFD1 /* SessionManager.swift */,
-				E9E36BF62A117A460045ECC9 /* Components */,
 				E980FCEB2A02898000D8840B /* OnboardingView.swift */,
-				E9E36BF02A1045310045ECC9 /* OnboardingHomeView.swift */,
-				E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */,
-				E9E36BEC2A0FC4920045ECC9 /* WebSheetView.swift */,
 				E9E36BF42A1158B50045ECC9 /* LoginView.swift */,
+				E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */,
+				E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */,
+				E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */,
+				E92A5A992A12E23400B0FFD1 /* PasswordView.swift */,
 				E9E36BF22A1156CB0045ECC9 /* HomeView.swift */,
+				E92A5A802A1183E800B0FFD1 /* SessionManager.swift */,
+				E92A5A9D2A12EE9D00B0FFD1 /* RegistrationManager.swift */,
+				E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */,
+				E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */,
+				E9E36BF62A117A460045ECC9 /* Components */,
+				E92A5A842A12B41500B0FFD1 /* Fonts */,
 				E980FCE12A003AAB00D8840B /* Assets.xcassets */,
 				E980FCE32A003AAB00D8840B /* Preview Content */,
 			);
@@ -98,6 +128,7 @@
 			children = (
 				E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */,
 				E9E36BF92A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift */,
+				E92A5A932A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -161,6 +192,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E980FCE52A003AAB00D8840B /* Preview Assets.xcassets in Resources */,
+				E92A5A922A12BB8800B0FFD1 /* Karla-VariableFont_wght.ttf in Resources */,
+				E92A5A902A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf in Resources */,
 				E980FCE22A003AAB00D8840B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,14 +205,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92A5A982A12E0CC00B0FFD1 /* EmailView.swift in Sources */,
+				E92A5A9C2A12ECDB00B0FFD1 /* SignUpView.swift in Sources */,
+				E92A5A9A2A12E23400B0FFD1 /* PasswordView.swift in Sources */,
 				E9E36BFA2A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift in Sources */,
-				E9E36BED2A0FC4920045ECC9 /* WebSheetView.swift in Sources */,
+				E9E36BED2A0FC4920045ECC9 /* TermsAndConditionsView.swift in Sources */,
 				E9E36BF52A1158B60045ECC9 /* LoginView.swift in Sources */,
-				E9E36BF12A1045310045ECC9 /* OnboardingHomeView.swift in Sources */,
+				E92A5A962A12DECC00B0FFD1 /* PrivacyPolicyView.swift in Sources */,
 				E980FCDE2A003AA900D8840B /* RestaurantApp.swift in Sources */,
 				E92A5A832A11860800B0FFD1 /* MainAppView.swift in Sources */,
 				E9E36BF32A1156CB0045ECC9 /* HomeView.swift in Sources */,
+				E92A5A9E2A12EE9D00B0FFD1 /* RegistrationManager.swift in Sources */,
 				E9E36BF82A117A7C0045ECC9 /* LittleLemonButtonStyle.swift in Sources */,
+				E92A5A942A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift in Sources */,
 				E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */,
 				E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */,
 				E980FCEC2A02898000D8840B /* OnboardingView.swift in Sources */,
@@ -313,6 +351,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"littlelemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = littlelemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -341,6 +380,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"littlelemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = littlelemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

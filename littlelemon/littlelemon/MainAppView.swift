@@ -17,7 +17,7 @@ struct MainAppView: View {
                 .environmentObject(session)
                 .transition(.opacity)
         default:
-            LoginView()
+            OnboardingView()
                 .environmentObject(session)
                 .transition(.opacity)
         }
