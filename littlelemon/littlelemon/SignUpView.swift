@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+let kFirstName = "first name key"
+let kLastName = "last name key"
+let kEmail = "email key"
+let kPassword = "password key"
+
 struct SignUpView: View {
     @StateObject private var manager = RegistrationManager()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

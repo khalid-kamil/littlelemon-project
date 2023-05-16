@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct NameView: View {
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var showAlert = false
+    
     let action: () -> Void
     
     var body: some View {
@@ -24,21 +28,29 @@ struct NameView: View {
                 .padding(.bottom, 32)
                 .multilineTextAlignment(.center)
             
-            TextField("First Name", text: .constant(""))
+            TextField("First Name", text: $firstName)
                 .textFieldStyle(LittleLemonTextField())
             
-            TextField("Last Name", text: .constant(""))
+            TextField("Last Name", text: $lastName)
                 .textFieldStyle(LittleLemonTextField())
             
             Spacer()
             
             Button {
-                // TODO: Implement continue function
-                action()
+                if firstName == "" || lastName == "" {
+                    showAlert = true
+                } else {
+                    UserDefaults.standard.set(firstName, forKey: kFirstName)
+                    UserDefaults.standard.set(lastName, forKey: kLastName)
+                    action()
+                }
             } label: {
                 Text("Continue")
             }
             .buttonStyle(LittleLemonButton())
+            .alert("Please enter your first name and last name", isPresented: $showAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
         .padding(.top, 100)
         .padding(16)

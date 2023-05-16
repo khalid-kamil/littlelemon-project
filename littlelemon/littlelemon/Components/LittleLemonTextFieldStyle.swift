@@ -19,6 +19,7 @@ struct LittleLemonTextField: TextFieldStyle {
                 .padding(.leading)
                 .foregroundColor(.gray)
                 .accentColor(Color("Primary 1"))
+                .autocorrectionDisabled()
         }
         .padding(.bottom, 16)
     }

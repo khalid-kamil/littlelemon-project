@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PasswordView: View {
+    @State private var password = ""
+    @State private var showAlert = false
+    
     @EnvironmentObject var session: SessionManager
     let action: () -> Void
     
@@ -17,7 +20,6 @@ struct PasswordView: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .padding(.bottom, 4)
-            
                 .multilineTextAlignment(.center)
             
             Text("Make sure it's unique, at least 8 characters and isn't used anywhere else")
@@ -27,18 +29,27 @@ struct PasswordView: View {
                 .multilineTextAlignment(.center)
             
             
-            SecureField("Password", text: .constant(""))
+            SecureField("Password", text: $password)
                 .textFieldStyle(LittleLemonTextField())
+                .autocapitalization(.none)
             
             Spacer()
             
             Button {
-                action()
-                session.signIn()
+                if password == "" {
+                    showAlert = true
+                } else {
+                    UserDefaults.standard.set(password, forKey: kPassword)
+                    action()
+                    session.signIn()
+                }
             } label: {
-                Text("Let's Go")
+                Text("Register")
             }
             .buttonStyle(LittleLemonButton())
+            .alert("Please create a password", isPresented: $showAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
         .padding(.top, 100)
         .padding(16)

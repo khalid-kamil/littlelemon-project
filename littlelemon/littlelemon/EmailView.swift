@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EmailView: View {
+    @State private var email = ""
+    @State private var showAlert = false
+    
     let action: () -> Void
     
     var body: some View {
@@ -24,8 +27,9 @@ struct EmailView: View {
                 .padding(.bottom, 32)
                 .multilineTextAlignment(.center)
             
-            TextField("Email", text: .constant(""))
+            TextField("Email", text: $email)
                 .textFieldStyle(LittleLemonTextField())
+                .autocapitalization(.none)
             
             Spacer()
             
@@ -40,12 +44,19 @@ struct EmailView: View {
             .padding(.bottom, 8)
             
             Button {
-                // TODO: Implement continue function
-                action()
+                if email == "" {
+                    showAlert = true
+                } else {
+                    UserDefaults.standard.set(email, forKey: kEmail)
+                    action()
+                }
             } label: {
                 Text("Continue")
             }
             .buttonStyle(LittleLemonButton())
+            .alert("Please enter a valid email address", isPresented: $showAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
         .padding(.top, 100)
         .padding(16)
