@@ -30,8 +30,12 @@ struct MenuView: View {
                 print(error.localizedDescription)
                 return
             }
-            let data = data
-            print(String(describing: data))
+            
+            // Parsing response into models using JSONDecoder
+            if let data = data {
+                let decoder = JSONDecoder()
+                let json = try? decoder.decode(MenuList.self, from: data)
+            }
         }
         task.resume()
         
