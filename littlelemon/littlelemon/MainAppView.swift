@@ -11,16 +11,19 @@ struct MainAppView: View {
     @StateObject private var session = SessionManager()
     
     var body: some View {
-        switch session.currentState {
-        case .loggedIn:
-            HomeView()
-                .environmentObject(session)
-                .transition(.opacity)
-        default:
-            OnboardingView()
-                .environmentObject(session)
-                .transition(.opacity)
+        ZStack {
+            switch session.currentState {
+            case .loggedIn:
+                HomeView()
+                    .environmentObject(session)
+                    .transition(.opacity)
+            default:
+                OnboardingView()
+                    .environmentObject(session)
+                    .transition(.opacity)
+            }
         }
+        .onAppear(perform: session.configureCurrentState)
     }
 }
 

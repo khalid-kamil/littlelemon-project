@@ -18,9 +18,16 @@ final class SessionManager: ObservableObject {
     
     func signIn() {
         currentState = .loggedIn
+        UserDefaults.standard.set(true, forKey: kIsLoggedIn)
     }
     
     func signOut() {
         currentState = .loggedOut
+        UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+    }
+    
+    func configureCurrentState() {
+        let isLoggedIn = UserDefaults.standard.bool(forKey: kIsLoggedIn)
+        currentState = isLoggedIn ? .loggedIn : .loggedOut
     }
 }

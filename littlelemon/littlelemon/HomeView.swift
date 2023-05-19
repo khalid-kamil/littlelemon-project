@@ -8,22 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var session: SessionManager
     
     var body: some View {
-        VStack(spacing: 16) {
-            Text("[Little Lemon Home Screen]")
-                .font(.system(size: 20,
-                              weight: .heavy))
-            Button {
-                withAnimation {
-                    session.signOut()
+        TabView {
+            MenuView()
+                .tabItem {
+                    Label("Menu", systemImage: "menucard")
                 }
-            } label: {
-                Text("Sign Out")
-            }
-            .buttonStyle(LittleLemonButton())
-            .padding()
+            UserProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
+                }
         }
     }
 }

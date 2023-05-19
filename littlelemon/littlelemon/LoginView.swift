@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var email = ""
+    @State private var password = ""
+    @State private var alertMessage = "Please enter your email and password"
+    @State private var showAlert = false
     @EnvironmentObject var session: SessionManager
     
     var body: some View {
@@ -17,8 +21,8 @@ struct LoginView: View {
             VStack {
                 Spacer()
                 info
-                email
-                password
+                emailField
+                passwordField
                 Spacer()
                 Spacer()
                 login
@@ -47,25 +51,36 @@ private extension LoginView {
         .padding(.bottom, 48)
     }
     
-    var email: some View {
-        TextField("Email Address", text: .constant(""))
+    var emailField: some View {
+        TextField("Email Address", text: $email)
             .textFieldStyle(LittleLemonTextField())
+            .autocapitalization(.none)
     }
     
-    var password: some View {
-        SecureField("Password", text: .constant(""))
+    var passwordField: some View {
+        SecureField("Password", text: $password)
             .textFieldStyle(LittleLemonTextField())
     }
     
     var login: some View {
         Button {
-            withAnimation {
-                session.signIn()
+            if email == "" || password == "" {
+                showAlert = true
+            } else {
+                withAnimation {
+                    UserDefaults.standard.set(true, forKey: kIsLoggedIn)
+                    session.signIn()
+                }
             }
         } label: {
             Text("Login")
         }
         .buttonStyle(LittleLemonButton())
+        .alert(alertMessage, isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        }
+        
+        
     }
 }
 

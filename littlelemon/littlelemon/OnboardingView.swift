@@ -10,6 +10,7 @@ import SwiftUI
 let keyFirstName = "first name key"
 let keyLastName = "last name key"
 let keyEmail = "email key"
+let kIsLoggedIn = "kIsLoggedIn"
 
 struct OnboardingView: View {
     @State private var showTerms = false
@@ -19,8 +20,7 @@ struct OnboardingView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                header
-                hero
+                HeaderView()
                 callToAction
                 Spacer()
                 footer
@@ -44,53 +44,6 @@ struct OnboardingView: View {
 }
 
 private extension OnboardingView {
-    var header: some View {
-        HStack {
-            Image("Logo")
-                .resizable()
-                .scaledToFit()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 36)
-        }
-        .padding(.bottom, 8)
-    }
-    
-    var hero: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Little Lemon")
-                    .displayTitleStyle()
-                    .foregroundColor(Color("Primary 2"))
-                    .padding(.bottom, -16)
-                
-                Text("Chicago")
-                    .subtitleStyle()
-                    .foregroundColor(.white)
-                    .padding(.bottom, 16)
-                
-                Text("""
-                        We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
-                        """)
-                .paragraphTextStyle()
-                .foregroundColor(.white)
-                .frame(maxWidth: 200)
-                .padding(.bottom, 32)
-            }
-            Spacer()
-        }
-        .overlay(alignment: .bottomTrailing, content: {
-            Image("Hero image")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 140, height: 140, alignment: .center)
-                .cornerRadius(16)
-                .padding(.bottom, 24)
-        })
-        
-        .padding(.horizontal, 16)
-        .background(Color("Primary 1"))
-    }
-    
     var callToAction: some View {
         VStack(spacing: 0) {
             Text("Welcome to Little Lemon. Let's get started.")

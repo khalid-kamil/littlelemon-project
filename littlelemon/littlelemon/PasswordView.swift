@@ -40,6 +40,7 @@ struct PasswordView: View {
                     showAlert = true
                 } else {
                     UserDefaults.standard.set(password, forKey: kPassword)
+                    UserDefaults.standard.set(true, forKey: kIsLoggedIn)
                     action()
                     session.signIn()
                 }
