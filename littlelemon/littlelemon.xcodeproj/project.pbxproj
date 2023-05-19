@@ -24,6 +24,7 @@
 		E92A5AA82A17E07200B0FFD1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AA72A17E07200B0FFD1 /* Persistence.swift */; };
 		E92A5AAC2A17E1C800B0FFD1 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAB2A17E1C800B0FFD1 /* MenuList.swift */; };
 		E92A5AAE2A17E1D400B0FFD1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAD2A17E1D400B0FFD1 /* MenuItem.swift */; };
+		E92A5AB12A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAF2A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld */; };
 		E980FCDE2A003AA900D8840B /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980FCDD2A003AA900D8840B /* RestaurantApp.swift */; };
 		E980FCE22A003AAB00D8840B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE12A003AAB00D8840B /* Assets.xcassets */; };
 		E980FCE52A003AAB00D8840B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE42A003AAB00D8840B /* Preview Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		E92A5AA72A17E07200B0FFD1 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E92A5AAB2A17E1C800B0FFD1 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		E92A5AAD2A17E1D400B0FFD1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		E92A5AB02A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
 		E980FCDA2A003AA900D8840B /* littlelemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = littlelemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E980FCDD2A003AA900D8840B /* RestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp.swift; sourceTree = "<group>"; };
 		E980FCE12A003AAB00D8840B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				E92A5AA92A17E17000B0FFD1 /* Models */,
 				E9E36BF62A117A460045ECC9 /* Components */,
 				E92A5A842A12B41500B0FFD1 /* Fonts */,
+				E92A5AAF2A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld */,
 				E980FCE12A003AAB00D8840B /* Assets.xcassets */,
 				E980FCE32A003AAB00D8840B /* Preview Content */,
 			);
@@ -263,6 +266,7 @@
 				E92A5AA42A15784600B0FFD1 /* UserProfileView.swift in Sources */,
 				E92A5A942A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift in Sources */,
 				E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */,
+				E92A5AB12A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld in Sources */,
 				E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */,
 				E980FCEC2A02898000D8840B /* OnboardingView.swift in Sources */,
 			);
@@ -465,6 +469,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E92A5AAF2A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E92A5AB02A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodel */,
+			);
+			currentVersion = E92A5AB02A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodel */;
+			path = ExampleDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E980FCD22A003AA900D8840B /* Project object */;
 }

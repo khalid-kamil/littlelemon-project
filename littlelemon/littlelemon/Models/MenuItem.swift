@@ -12,7 +12,7 @@ struct MenuItem: Decodable {
     private var image: String
     private var price: String
     private var category: String
-    private var description: String
+//    private var description: String
     
     
 }
