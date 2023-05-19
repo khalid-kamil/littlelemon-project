@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
         VStack {
             HeaderView()
