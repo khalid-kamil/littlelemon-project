@@ -13,6 +13,8 @@ struct MenuItem: Decodable {
     private var price: String
     private var category: String
     private var description: String
+    
+    
 }
 
-/https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json/
+
