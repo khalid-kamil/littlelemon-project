@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct MainAppView: View {
     @StateObject private var session = SessionManager()
+    
+    init() {
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().backgroundColor = .white
+    }
     
     var body: some View {
         ZStack {

@@ -1,5 +1,6 @@
 import CoreData
 import Foundation
+import SwiftUI
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -8,7 +9,9 @@ struct PersistenceController {
 
     init() {
         container = NSPersistentContainer(name: "ExampleDatabase")
-        container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        if EnvironmentValues.isPreview {
+            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        }
         container.loadPersistentStores(completionHandler: {_,_ in })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
@@ -18,5 +21,11 @@ struct PersistenceController {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Dish")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         let _ = try? container.persistentStoreCoordinator.execute(deleteRequest, with: container.viewContext)
+    }
+}
+
+extension EnvironmentValues {
+    static var isPreview: Bool {
+        return ProcessInfo.processInfo.environment["XCODE_RUNNNING_FOR_PREVIEWS"] == "1"
     }
 }
