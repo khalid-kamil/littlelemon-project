@@ -14,7 +14,7 @@ struct MenuView: View {
         VStack {
             HeaderView()
             NavigationStack {
-                FetchedObjects() { (dishes: [Dish]) in
+                FetchedObjects(sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                     List(dishes) { dish in
                         NavigationLink {
                             ItemView(dish: dish)
@@ -39,6 +39,18 @@ struct MenuView: View {
             getMenuData()
         }
     }
+    
+//    Step 1: Sorting by name
+//    Create a new function called buildSortDescriptors and make it return an array of NSSortDescriptor instances for Dish objects.
+//    Inside the function, declare a return statement followed by the array literal.
+//    Inside the array literal, initialize an NSSortDescriptor. Use "title" for the key argument, true for the ascending argument and #selector(NSString.localizedStandardCompare) for the selector argument.
+//    The function now returns an array with one sort descriptor that will sort the Dish data by title in ascending order.
+    func buildSortDescriptors() -> [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "title",
+                                 ascending: true,
+                                 selector: #selector(NSString.localizedStandardCompare(_:)))]
+    }
+    
     
     func getMenuData() {
         // clear database  before saving menu list each time
@@ -80,5 +92,6 @@ struct MenuView: View {
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
+            .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }

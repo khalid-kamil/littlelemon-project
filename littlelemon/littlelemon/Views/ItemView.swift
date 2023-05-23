@@ -18,22 +18,27 @@ struct ItemView: View {
             AsyncImage(url: URL(string: dish.image!)) { image in
                 image.resizable()
                 .scaledToFit()
+                .overlay(alignment: .topTrailing) {
+                    Text(dish.category!)
+                        .sectionCategoryStyle()
+                        .foregroundColor(Color("Secondary 1"))
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 8)
+                        .background {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(Color("Secondary 2"))
+                        }
+                        .padding(8)
+                }
             } placeholder: {
-                ProgressView()
+                ZStack {
+                    Color.gray
+                        .opacity(30)
+                    ProgressView()
+                }
             }
-            .frame(maxWidth: 300)
-            .overlay(alignment: .topTrailing) {
-                Text(dish.category!)
-                    .sectionCategoryStyle()
-                    .foregroundColor(Color("Secondary 1"))
-                    .padding(.vertical, 2)
-                    .padding(.horizontal, 8)
-                    .background {
-                        RoundedRectangle(cornerRadius: 8)
-                            .foregroundColor(Color("Secondary 2"))
-                    }
-                    .padding(8)
-            }
+            .frame(maxWidth: 300, maxHeight: 240)
+            
             HStack {
                 Text("Price:")
                 Spacer()
