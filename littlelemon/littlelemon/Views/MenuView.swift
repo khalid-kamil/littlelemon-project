@@ -9,11 +9,15 @@ import SwiftUI
 
 struct MenuView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State var searchText = ""
     
     var body: some View {
         VStack {
             HeaderView()
             NavigationStack {
+                TextField("Search menu", text: $searchText)
+                    .textFieldStyle(LittleLemonTextField())
+                    .padding(12)
                 FetchedObjects(sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                     List(dishes) { dish in
                         NavigationLink {
