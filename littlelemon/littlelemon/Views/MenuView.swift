@@ -18,7 +18,8 @@ struct MenuView: View {
                 TextField("Search menu", text: $searchText)
                     .textFieldStyle(LittleLemonTextField())
                     .padding(12)
-                FetchedObjects(sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
+                FetchedObjects(predicate: buildPredicate(),
+                               sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                     List(dishes) { dish in
                         NavigationLink {
                             ItemView(dish: dish)
@@ -53,6 +54,17 @@ struct MenuView: View {
         return [NSSortDescriptor(key: "title",
                                  ascending: true,
                                  selector: #selector(NSString.localizedStandardCompare(_:)))]
+    }
+    
+//    Step 4: Add a function called buildPredicate that returns a predicate to filter the FetchedObjets results
+//     - Inside the function, check if the searchText state variable is empty.
+//     - If it is empty, return a new instance of the NSPredicate passing true to the value argument.
+//     - If it is not empty, return a new instance of the NSPredicate by passing the following into its format argument: "title CONTAINS[cd] %@", searchText. It will try to match part of the title property of the Dish to the given text and return all objects that match.
+    func buildPredicate() -> NSPredicate {
+        if searchText == "" {
+            return NSPredicate(value: true)
+        }
+        return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
     }
     
     
