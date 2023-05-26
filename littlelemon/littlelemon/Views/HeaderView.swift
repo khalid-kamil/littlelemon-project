@@ -29,37 +29,35 @@ private extension HeaderView {
     }
     
     var hero: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Little Lemon")
-                    .displayTitleStyle()
-                    .foregroundColor(Color("Primary 2"))
-                    .padding(.bottom, -16)
-                
-                Text("Chicago")
-                    .subtitleStyle()
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Little Lemon")
+                .displayTitleStyle()
+                .foregroundColor(Color("Primary 2"))
+                .padding(.bottom, -16)
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Chicago")
+                        .subtitleStyle()
+                        .foregroundColor(.white)
+                        .padding(.bottom, 16)
+                    
+                    Text("""
+                            We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
+                            """)
+                    .paragraphTextStyle()
                     .foregroundColor(.white)
-                    .padding(.bottom, 16)
+                    .frame(maxWidth: 200)
+                    .padding(.bottom, 32)
+                }
                 
-                Text("""
-                        We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
-                        """)
-                .paragraphTextStyle()
-                .foregroundColor(.white)
-                .frame(maxWidth: 200)
-                .padding(.bottom, 32)
+                Image("Hero image")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 140, height: 140, alignment: .center)
+                    .cornerRadius(16)
             }
-            Spacer()
+            .frame(maxWidth: .infinity)
         }
-        .overlay(alignment: .bottomTrailing, content: {
-            Image("Hero image")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 140, height: 140, alignment: .center)
-                .cornerRadius(16)
-                .padding(.bottom, 24)
-        })
-        
         .padding(.horizontal, 16)
         .background(Color("Primary 1"))
     }

@@ -51,3 +51,15 @@ extension Dish {
         return Dish(context: context)
     }
 }
+
+extension Dish {
+    static func formatPrice(_ price: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = 2
+        
+        let number = Float(price) ?? 0
+        let formattedValue = formatter.string(for: number)!
+        return formattedValue
+    }
+}

@@ -10,32 +10,85 @@ import SwiftUI
 struct MenuView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var searchText = ""
+    @State private var selectedCategory: Category = .all
+    @State private var categories = Category.allCases
     
     var body: some View {
-        VStack {
-            HeaderView()
+        VStack(spacing: 0) {
             NavigationStack {
+                HeaderView()
                 TextField("Search menu", text: $searchText)
                     .textFieldStyle(LittleLemonTextField())
-                    .padding(12)
+                    .padding(.top, 12)
+                    .padding(.horizontal, 12)
+                HStack(spacing: 0) {
+                    Text("Order for delivery")
+                        .sectionTitleStyle()
+                    Spacer()
+                }
+                .padding(.horizontal, 12)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(categories, id:\.self) { category in
+                            Button {
+                                selectedCategory = category
+                            } label: {
+                                Text(category.rawValue.capitalized)
+                                    .sectionCategoryStyle()
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 6)
+                                    .padding(.horizontal, 12)
+                                    .background(selectedCategory == category ? Color("Primary 1") : Color("Secondary 3"))
+                                    .foregroundColor(selectedCategory == category ? Color("Primary 2") : Color("Primary 1"))
+                                    .clipShape(Capsule())
+                                    .font(.headline)
+                            }
+                        }
+                    }
+                }
+                .padding(.horizontal, 12)
+                .padding(.bottom, 8)
+                Divider()
+                    .padding(.horizontal, 12)
                 FetchedObjects(predicate: buildPredicate(),
                                sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
                     List(dishes) { dish in
                         NavigationLink {
                             ItemView(dish: dish)
                         } label: {
-                            HStack {
-                                Text("\(dish.title!) - \(dish.price!)")
-                                Spacer()
-                                AsyncImage(url: URL(string: dish.image!)) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text("\(dish.title!)")
+                                        .cardTitleStyle()
+                                HStack(spacing: 0) {
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        Text("The famous greek salad of crispy lettuce, peppers, olives and our Chicago ranch sauce.")
+                                            .lineLimit(2)
+                                            .paragraphTextStyle()
+                                            .foregroundColor(Color("Primary 1"))
+                                        Text("\(Dish.formatPrice(dish.price!))")
+                                            .highlightTextStyle()
+                                        Text(dish.category!)
+                                    }
+                                    .padding(.vertical, 8)
+                                    Spacer()
+                                    AsyncImage(url: URL(string: dish.image!)) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .transition(.scale(scale: 0.1, anchor: .center))
+//                                            .overlay(Material.ultraThin)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 88, height: 88)
+                                    .background(Color("Secondary 3"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .shadow(color: Color("Secondary 3"), radius: 8)
                                 }
-                                .frame(width: 120, height: 120)
                             }
                         }
                     }
+                    .listStyle(PlainListStyle())
                     .scrollContentBackground(.hidden)
                 }
             }
@@ -61,10 +114,19 @@ struct MenuView: View {
 //     - If it is empty, return a new instance of the NSPredicate passing true to the value argument.
 //     - If it is not empty, return a new instance of the NSPredicate by passing the following into its format argument: "title CONTAINS[cd] %@", searchText. It will try to match part of the title property of the Dish to the given text and return all objects that match.
     func buildPredicate() -> NSPredicate {
+        var predicate1: NSPredicate
         if searchText == "" {
-            return NSPredicate(value: true)
+            predicate1 = NSPredicate(value: true)
+        } else {
+            predicate1 = NSPredicate(format: "title CONTAINS[cd] %@", searchText)
         }
-        return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+        
+        var predicate2 = NSPredicate(format: "category like %@", selectedCategory.rawValue)
+        if selectedCategory == .all {
+            predicate2 = NSPredicate(value: true)
+        }
+        
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
     }
     
     
