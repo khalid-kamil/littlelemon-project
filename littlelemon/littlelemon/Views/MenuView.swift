@@ -67,7 +67,6 @@ struct MenuView: View {
                                             .foregroundColor(Color("Primary 1"))
                                         Text("\(Dish.formatPrice(dish.price!))")
                                             .highlightTextStyle()
-                                        Text(dish.category!)
                                     }
                                     .padding(.vertical, 8)
                                     Spacer()

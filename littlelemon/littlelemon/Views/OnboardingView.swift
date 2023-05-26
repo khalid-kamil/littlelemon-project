@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-let keyFirstName = "first name key"
-let keyLastName = "last name key"
-let keyEmail = "email key"
+//let keyFirstName = "first name key"
+//let keyLastName = "last name key"
+//let keyEmail = "email key"
 let kIsLoggedIn = "kIsLoggedIn"
 
 struct OnboardingView: View {

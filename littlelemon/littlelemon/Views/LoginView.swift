@@ -39,8 +39,8 @@ private extension LoginView {
                 .font(.system(size: 96))
             
             Text("Welcome back to Little Lemon!")
-            .font(.title)
-            .fontWeight(.bold)
+                .font(.title)
+                .fontWeight(.bold)
             
             Text("To start ordering your favourite meals, please enter your email and password.")
                 .multilineTextAlignment(.center)
@@ -64,13 +64,13 @@ private extension LoginView {
     
     var login: some View {
         Button {
-            if email == "" || password == "" {
-                showAlert = true
-            } else {
+            if email == UserDefaults.standard.string(forKey: kEmail) && password == UserDefaults.standard.string(forKey: kPassword) {
                 withAnimation {
                     UserDefaults.standard.set(true, forKey: kIsLoggedIn)
                     session.signIn()
                 }
+            } else {
+                showAlert = true
             }
         } label: {
             Text("Login")

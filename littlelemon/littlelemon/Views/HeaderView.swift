@@ -44,6 +44,7 @@ private extension HeaderView {
                     Text("""
                             We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                             """)
+                    .fixedSize(horizontal: false, vertical: true)
                     .paragraphTextStyle()
                     .foregroundColor(.white)
                     .frame(maxWidth: 200)
