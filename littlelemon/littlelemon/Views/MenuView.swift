@@ -61,7 +61,7 @@ struct MenuView: View {
                                         .cardTitleStyle()
                                 HStack(spacing: 0) {
                                     VStack(alignment: .leading, spacing: 8) {
-                                        Text("The famous greek salad of crispy lettuce, peppers, olives and our Chicago ranch sauce.")
+                                        Text("\(dish.dishDescription!)")
                                             .lineLimit(2)
                                             .paragraphTextStyle()
                                             .foregroundColor(Color("Primary 1"))
@@ -156,6 +156,7 @@ struct MenuView: View {
                     oneDish.image = item.image
                     oneDish.price = item.price
                     oneDish.category = item.category
+                    oneDish.dishDescription = item.description
                 }
                 try? viewContext.save()
                 print("View Context saved.")

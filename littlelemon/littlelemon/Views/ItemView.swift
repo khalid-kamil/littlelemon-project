@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemView: View {
+    @State var showAlert = false
     var dish: Dish
     
     var body: some View {
@@ -21,12 +22,12 @@ struct ItemView: View {
                 .overlay(alignment: .topTrailing) {
                     Text(dish.category!)
                         .sectionCategoryStyle()
-                        .foregroundColor(Color("Secondary 1"))
+                        .foregroundColor(Color("Secondary 4"))
                         .padding(.vertical, 2)
                         .padding(.horizontal, 8)
                         .background {
                             RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(Color("Secondary 2"))
+                                .foregroundColor(Color("Primary 2"))
                         }
                         .padding(8)
                 }
@@ -39,14 +40,30 @@ struct ItemView: View {
             }
             .frame(maxWidth: 300, maxHeight: 240)
             
+            Text("\(dish.dishDescription!)")
+                .paragraphTextStyle()
+            
             HStack {
                 Text("Price:")
-                Spacer()
-                Text(dish.price!)
+                Text("\(Dish.formatPrice(dish.price!))")
+                    .highlightTextStyle()
             }
             .leadTextStyle()
             .padding()
             .frame(maxWidth: 300)
+            
+            Spacer()
+            
+            Button {
+                showAlert.toggle()
+            } label: {
+                Text("Order Now")
+            }
+            .buttonStyle(LittleLemonButton())
+            .padding()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Order Successful!"), message: Text("Your order of \(dish.title!) is on its way!"))
         }
     }
 }

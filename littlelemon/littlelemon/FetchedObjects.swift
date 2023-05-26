@@ -38,6 +38,7 @@ extension Dish {
             dish.price = "22"
             dish.category = "Dessert"
             dish.image = "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?cs=srgb&dl=pexels-ella-olsson-1640772.jpg&fm=jpg"
+            dish.dishDescription = "Description"
             objects.append(dish)
         }
         return objects
