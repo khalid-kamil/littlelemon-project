@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90625032A27212F00DDA40F /* SplitBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90625022A27212F00DDA40F /* SplitBillView.swift */; };
 		E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A802A1183E800B0FFD1 /* SessionManager.swift */; };
 		E92A5A832A11860800B0FFD1 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5A822A11860800B0FFD1 /* MainAppView.swift */; };
 		E92A5A902A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92A5A8F2A12BB7500B0FFD1 /* MarkaziText-VariableFont_wght.ttf */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E90625022A27212F00DDA40F /* SplitBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitBillView.swift; sourceTree = "<group>"; };
 		E92A5A802A1183E800B0FFD1 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		E92A5A822A11860800B0FFD1 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
 		E92A5A892A12B72700B0FFD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E90625002A27203500DDA40F /* Registration Flow */ = {
+			isa = PBXGroup;
+			children = (
+				E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */,
+				E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */,
+				E980FCEB2A02898000D8840B /* OnboardingView.swift */,
+				E9E36BF42A1158B50045ECC9 /* LoginView.swift */,
+				E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */,
+				E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */,
+				E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */,
+				E92A5A992A12E23400B0FFD1 /* PasswordView.swift */,
+			);
+			name = "Registration Flow";
+			sourceTree = "<group>";
+		};
+		E90625012A2720B500DDA40F /* Split Bill */ = {
+			isa = PBXGroup;
+			children = (
+				E90625022A27212F00DDA40F /* SplitBillView.swift */,
+			);
+			path = "Split Bill";
+			sourceTree = "<group>";
+		};
 		E92A5A842A12B41500B0FFD1 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,20 +129,14 @@
 		E92A5AAA2A17E18000B0FFD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */,
 				E92A5A822A11860800B0FFD1 /* MainAppView.swift */,
-				E980FCEB2A02898000D8840B /* OnboardingView.swift */,
-				E9E36BF42A1158B50045ECC9 /* LoginView.swift */,
-				E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */,
-				E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */,
-				E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */,
-				E92A5A992A12E23400B0FFD1 /* PasswordView.swift */,
+				E90625002A27203500DDA40F /* Registration Flow */,
 				E9E36BF22A1156CB0045ECC9 /* HomeView.swift */,
 				E92A5A9F2A155D5300B0FFD1 /* MenuView.swift */,
 				E92A5AB22A19382F00B0FFD1 /* ItemView.swift */,
 				E92A5AA32A15784600B0FFD1 /* UserProfileView.swift */,
-				E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */,
 				E92A5AA12A155F9800B0FFD1 /* HeaderView.swift */,
+				E90625012A2720B500DDA40F /* Split Bill */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +291,7 @@
 				E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */,
 				E92A5AB12A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld in Sources */,
 				E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */,
+				E90625032A27212F00DDA40F /* SplitBillView.swift in Sources */,
 				E980FCEC2A02898000D8840B /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

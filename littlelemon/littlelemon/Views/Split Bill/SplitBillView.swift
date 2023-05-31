@@ -1,0 +1,86 @@
+//
+//  SplitBillView.swift
+//  littlelemon
+//
+//  Created by Khalid Kamil on 31/05/2023.
+//
+
+import SwiftUI
+
+struct SplitBillView: View {
+    @FocusState private var amountIsFocused: Bool
+    
+    @State private var billAmount: Double = 0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
+    
+    let tipPercentages = [10, 15, 25, 0]
+    
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(tipPercentage)
+        
+        let tipValue = billAmount / 100 * tipSelection
+        let grandTotal = billAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+        
+        return amountPerPerson
+    }
+    
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section {
+                    TextField("Amount", value: $billAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
+                        .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
+                    
+                    Picker("Number of people", selection: $numberOfPeople) {
+                        ForEach(2..<100) {
+                            Text("\($0) people")
+                        }
+                    }
+                }
+                
+                Section {
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Text("How much would you like to tip?")
+                }
+                
+                Section {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
+                } header: {
+                    Text("Amount per person")
+                }
+                
+                Section {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
+                } header: {
+                    Text("Total")
+                }
+            }
+            .navigationTitle("Split the bill")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct SplitBillView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplitBillView()
+    }
+}
