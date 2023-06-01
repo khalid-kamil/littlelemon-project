@@ -10,9 +10,9 @@ import SwiftUI
 struct SplitBillView: View {
     @Environment(\.dismiss) var dismiss
     
-    @FocusState private var amountIsFocused: Bool
+//    @FocusState private var amountIsFocused: Bool
     
-    @State private var billAmount: Double = 0
+    var billAmount: Double
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 10
     
@@ -36,9 +36,9 @@ struct SplitBillView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Amount", value: $billAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
-                        .keyboardType(.decimalPad)
-                        .focused($amountIsFocused)
+                    Text(billAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
+//                        .keyboardType(.decimalPad)
+//                        .focused($amountIsFocused)
                     
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2..<100) {
@@ -73,25 +73,27 @@ struct SplitBillView: View {
             .navigationTitle("Split the bill")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {
-                        amountIsFocused = false
-                    }
+//                ToolbarItemGroup(placement: .keyboard) {
+//                    Spacer()
+//                    Button("Done") {
+//                        amountIsFocused = false
+//                    }
+//                }
+                ToolbarItemGroup(placement: .cancellationAction) {
+                    Button("Cancel") {
+                                dismiss()
+                            }
+//                            .font(.title)
+//                            .padding()
+//                            .background(.black)
                 }
             }
-            Button("Press to dismiss") {
-                        dismiss()
-                    }
-                    .font(.title)
-                    .padding()
-                    .background(.black)
         }
     }
 }
 
 struct SplitBillView_Previews: PreviewProvider {
     static var previews: some View {
-        SplitBillView()
+        SplitBillView(billAmount: 10)
     }
 }

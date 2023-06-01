@@ -57,7 +57,7 @@ struct ItemView: View {
                 showSplitBillView.toggle()
             }
             .sheet(isPresented: $showSplitBillView) {
-                SplitBillView()
+                SplitBillView(billAmount: Double(dish.price!)!)
             }
             
             Spacer()
