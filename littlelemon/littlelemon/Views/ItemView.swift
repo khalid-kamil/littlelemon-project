@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemView: View {
+    @State var showSplitBillView = false
     @State var showAlert = false
     var dish: Dish
     
@@ -18,19 +19,19 @@ struct ItemView: View {
                 .foregroundColor(Color("Primary 1"))
             AsyncImage(url: URL(string: dish.image!)) { image in
                 image.resizable()
-                .scaledToFit()
-                .overlay(alignment: .topTrailing) {
-                    Text(dish.category!)
-                        .sectionCategoryStyle()
-                        .foregroundColor(Color("Secondary 4"))
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 8)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(Color("Primary 2"))
-                        }
-                        .padding(8)
-                }
+                    .scaledToFit()
+                    .overlay(alignment: .topTrailing) {
+                        Text(dish.category!)
+                            .sectionCategoryStyle()
+                            .foregroundColor(Color("Secondary 4"))
+                            .padding(.vertical, 2)
+                            .padding(.horizontal, 8)
+                            .background {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .foregroundColor(Color("Primary 2"))
+                            }
+                            .padding(8)
+                    }
             } placeholder: {
                 ZStack {
                     Color.gray
@@ -51,6 +52,13 @@ struct ItemView: View {
             .leadTextStyle()
             .padding()
             .frame(maxWidth: 300)
+            
+            Button("Split the bill") {
+                showSplitBillView.toggle()
+            }
+            .sheet(isPresented: $showSplitBillView) {
+                SplitBillView()
+            }
             
             Spacer()
             

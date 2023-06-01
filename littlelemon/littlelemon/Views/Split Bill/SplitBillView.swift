@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct SplitBillView: View {
+    @Environment(\.dismiss) var dismiss
+    
     @FocusState private var amountIsFocused: Bool
     
     @State private var billAmount: Double = 0
     @State private var numberOfPeople = 2
-    @State private var tipPercentage = 20
+    @State private var tipPercentage = 10
     
     let tipPercentages = [10, 15, 25, 0]
     
-    var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+    var grandTotal: Double {
         let tipSelection = Double(tipPercentage)
         
         let tipValue = billAmount / 100 * tipSelection
-        let grandTotal = billAmount + tipValue
+        let totalAmount = billAmount + tipValue
+        return totalAmount
+    }
+    
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
         let amountPerPerson = grandTotal / peopleCount
-        
         return amountPerPerson
     }
     
@@ -60,7 +65,7 @@ struct SplitBillView: View {
                 }
                 
                 Section {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
+                    Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
                 } header: {
                     Text("Total")
                 }
@@ -75,6 +80,12 @@ struct SplitBillView: View {
                     }
                 }
             }
+            Button("Press to dismiss") {
+                        dismiss()
+                    }
+                    .font(.title)
+                    .padding()
+                    .background(.black)
         }
     }
 }
