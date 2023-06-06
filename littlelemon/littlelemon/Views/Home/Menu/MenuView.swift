@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
     @State var searchText = ""
     @State private var selectedCategory: Category = .all
@@ -93,7 +94,7 @@ struct MenuView: View {
             }
         }
         .onAppear {
-            getMenuData()
+            PersistenceController.shared.getMenuData()
         }
     }
     
@@ -126,44 +127,6 @@ struct MenuView: View {
         }
         
         return NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
-    }
-    
-    
-    func getMenuData() {
-        // clear database  before saving menu list each time
-        PersistenceController().clear()
-        
-        let urlString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
-        let url = URL(string: urlString)!
-        let urlRequest = URLRequest(url: url)
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            // Parsing response into models using JSONDecoder
-            if let data = data {
-                let decoder = JSONDecoder()
-                guard let result = try? decoder.decode(MenuList.self, from: data) else {
-                    print("JSON decoding error")
-                    return
-                }
-                for item in result.menu {
-                    let oneDish = Dish(context: viewContext)
-                    oneDish.title = item.title
-                    oneDish.image = item.image
-                    oneDish.price = item.price
-                    oneDish.category = item.category
-                    oneDish.dishDescription = item.description
-                }
-                try? viewContext.save()
-                print("View Context saved.")
-            }
-        }
-        task.resume()
-        
     }
 }
 
