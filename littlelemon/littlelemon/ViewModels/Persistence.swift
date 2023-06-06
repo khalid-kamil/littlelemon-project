@@ -87,6 +87,45 @@ extension PersistenceController {
     }
 }
 
+// Price formatting
+extension PersistenceController {
+    static func formatPrice(_ price: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = 2
+        
+        let number = Float(price) ?? 0
+        let formattedValue = formatter.string(for: number)!
+        return formattedValue
+    }
+}
+
+// CoreData Preview Fix
+extension PersistenceController {
+    @discardableResult
+    static func makePreview(count: Int, in context: NSManagedObjectContext) -> [Dish] {
+        var objects = [Dish]()
+        for i in 0..<count {
+            let dish = Dish(context: context)
+            dish.title = "Pasta \(i)"
+            dish.price = "22"
+            dish.category = "Dessert"
+            dish.image = "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?cs=srgb&dl=pexels-ella-olsson-1640772.jpg&fm=jpg"
+            dish.dishDescription = "Description"
+            objects.append(dish)
+        }
+        return objects
+    }
+    
+    static func preview(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) -> Dish {
+        return makePreview(count: 1, in: context)[0]
+    }
+    
+    static func empty(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) -> Dish {
+        return Dish(context: context)
+    }
+}
+
 extension EnvironmentValues {
     static var isPreview: Bool {
         return ProcessInfo.processInfo.environment["XCODE_RUNNNING_FOR_PREVIEWS"] == "1"

@@ -46,7 +46,7 @@ struct ItemView: View {
             
             HStack {
                 Text("Price:")
-                Text("\(Dish.formatPrice(dish.price!))")
+                Text("\(PersistenceController.formatPrice(dish.price!))")
                     .highlightTextStyle()
             }
             .leadTextStyle()
@@ -78,6 +78,6 @@ struct ItemView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView(dish: .preview())
+        ItemView(dish: PersistenceController.preview())
     }
 }
