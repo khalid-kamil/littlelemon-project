@@ -61,6 +61,32 @@ struct PersistenceController {
     }
 }
 
+extension PersistenceController {
+    // Sorting by name
+    func buildSortDescriptors() -> [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "title",
+                                 ascending: true,
+                                 selector: #selector(NSString.localizedStandardCompare(_:)))]
+    }
+    
+    // Filter by name search and category selection
+    func buildPredicate(from search: String, and category: String ) -> NSPredicate {
+        var predicate1: NSPredicate
+        if search == "" {
+            predicate1 = NSPredicate(value: true)
+        } else {
+            predicate1 = NSPredicate(format: "title CONTAINS[cd] %@", search)
+        }
+        
+        var predicate2 = NSPredicate(format: "category like %@", category)
+        if category == "all" {
+            predicate2 = NSPredicate(value: true)
+        }
+        
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+    }
+}
+
 extension EnvironmentValues {
     static var isPreview: Bool {
         return ProcessInfo.processInfo.environment["XCODE_RUNNNING_FOR_PREVIEWS"] == "1"

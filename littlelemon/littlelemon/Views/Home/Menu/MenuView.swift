@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct MenuView: View {
-    
-    @Environment(\.managedObjectContext) private var viewContext
     @State var searchText = ""
     @State private var selectedCategory: Category = .all
-    @State private var categories = Category.allCases
+    private var categories = Category.allCases
     
     var body: some View {
         VStack(spacing: 0) {
@@ -51,8 +49,8 @@ struct MenuView: View {
                 .padding(.bottom, 8)
                 Divider()
                     .padding(.horizontal, 12)
-                FetchedObjects(predicate: buildPredicate(),
-                               sortDescriptors: buildSortDescriptors()) { (dishes: [Dish]) in
+                FetchedObjects(predicate: PersistenceController.shared.buildPredicate(from: searchText, and: selectedCategory.rawValue),
+                               sortDescriptors: PersistenceController.shared.buildSortDescriptors()) { (dishes: [Dish]) in
                     List(dishes) { dish in
                         NavigationLink {
                             ItemView(dish: dish)
@@ -97,38 +95,9 @@ struct MenuView: View {
             PersistenceController.shared.getMenuData()
         }
     }
-    
-//    Step 1: Sorting by name
-//    Create a new function called buildSortDescriptors and make it return an array of NSSortDescriptor instances for Dish objects.
-//    Inside the function, declare a return statement followed by the array literal.
-//    Inside the array literal, initialize an NSSortDescriptor. Use "title" for the key argument, true for the ascending argument and #selector(NSString.localizedStandardCompare) for the selector argument.
-//    The function now returns an array with one sort descriptor that will sort the Dish data by title in ascending order.
-    func buildSortDescriptors() -> [NSSortDescriptor] {
-        return [NSSortDescriptor(key: "title",
-                                 ascending: true,
-                                 selector: #selector(NSString.localizedStandardCompare(_:)))]
-    }
-    
-//    Step 4: Add a function called buildPredicate that returns a predicate to filter the FetchedObjets results
-//     - Inside the function, check if the searchText state variable is empty.
-//     - If it is empty, return a new instance of the NSPredicate passing true to the value argument.
-//     - If it is not empty, return a new instance of the NSPredicate by passing the following into its format argument: "title CONTAINS[cd] %@", searchText. It will try to match part of the title property of the Dish to the given text and return all objects that match.
-    func buildPredicate() -> NSPredicate {
-        var predicate1: NSPredicate
-        if searchText == "" {
-            predicate1 = NSPredicate(value: true)
-        } else {
-            predicate1 = NSPredicate(format: "title CONTAINS[cd] %@", searchText)
-        }
-        
-        var predicate2 = NSPredicate(format: "category like %@", selectedCategory.rawValue)
-        if selectedCategory == .all {
-            predicate2 = NSPredicate(value: true)
-        }
-        
-        return NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
-    }
 }
+
+
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
