@@ -128,7 +128,7 @@ private extension MenuView {
                        sortDescriptors: PersistenceController.shared.buildSortDescriptors()) { (dishes: [Dish]) in
             List(dishes) { dish in
                 NavigationLink {
-                    ItemView(dish: dish)
+                    DishDetailView(dish: dish)
                 } label: {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("\(dish.title!)")
