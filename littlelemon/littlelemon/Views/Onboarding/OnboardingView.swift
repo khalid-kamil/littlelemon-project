@@ -20,7 +20,8 @@ struct OnboardingView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                HeaderView()
+//                HeaderView()
+                Spacer()
                 callToAction
                 Spacer()
                 footer

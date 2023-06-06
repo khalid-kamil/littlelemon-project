@@ -24,7 +24,7 @@
 		E92A5AA82A17E07200B0FFD1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AA72A17E07200B0FFD1 /* Persistence.swift */; };
 		E92A5AAC2A17E1C800B0FFD1 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAB2A17E1C800B0FFD1 /* MenuList.swift */; };
 		E92A5AAE2A17E1D400B0FFD1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAD2A17E1D400B0FFD1 /* MenuItem.swift */; };
-		E92A5AB12A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAF2A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld */; };
+		E92A5AB12A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAF2A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld */; };
 		E92A5AB32A19382F00B0FFD1 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AB22A19382F00B0FFD1 /* ItemView.swift */; };
 		E980FCDE2A003AA900D8840B /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980FCDD2A003AA900D8840B /* RestaurantApp.swift */; };
 		E980FCE22A003AAB00D8840B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE12A003AAB00D8840B /* Assets.xcassets */; };
@@ -83,6 +83,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E90C929A2A2F94C700908B4A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */,
+				E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */,
+				E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */,
+				E92A5A992A12E23400B0FFD1 /* PasswordView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E90C929B2A2F950200908B4A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E9E36BF42A1158B50045ECC9 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E90C929C2A2F952400908B4A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E980FCEB2A02898000D8840B /* OnboardingView.swift */,
+				E90C929A2A2F94C700908B4A /* SignUp */,
+				E90C929B2A2F950200908B4A /* Login */,
+				E90C92A32A2FC67C00908B4A /* Terms and Policies */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E90C929D2A2F95A100908B4A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E9E36BF22A1156CB0045ECC9 /* HomeView.swift */,
+				E90C929E2A2F95AE00908B4A /* Menu */,
+				E90C929F2A2F977200908B4A /* Profile */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E90C929E2A2F95AE00908B4A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5A9F2A155D5300B0FFD1 /* MenuView.swift */,
+				E92A5AB22A19382F00B0FFD1 /* ItemView.swift */,
+				E92A5AA12A155F9800B0FFD1 /* HeaderView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		E90C929F2A2F977200908B4A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5AA32A15784600B0FFD1 /* UserProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E90C92A12A2FC63E00908B4A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5AA52A17E06300B0FFD1 /* FetchedObjects.swift */,
+				E92A5AA72A17E07200B0FFD1 /* Persistence.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E90C92A22A2FC65F00908B4A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5A802A1183E800B0FFD1 /* SessionManager.swift */,
+				E92A5A9D2A12EE9D00B0FFD1 /* RegistrationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E90C92A32A2FC67C00908B4A /* Terms and Policies */ = {
+			isa = PBXGroup;
+			children = (
+				E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */,
+				E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */,
+			);
+			path = "Terms and Policies";
+			sourceTree = "<group>";
+		};
 		E92A5A842A12B41500B0FFD1 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,20 +189,9 @@
 		E92A5AAA2A17E18000B0FFD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9E36BEC2A0FC4920045ECC9 /* TermsAndConditionsView.swift */,
 				E92A5A822A11860800B0FFD1 /* MainAppView.swift */,
-				E980FCEB2A02898000D8840B /* OnboardingView.swift */,
-				E9E36BF42A1158B50045ECC9 /* LoginView.swift */,
-				E92A5A9B2A12ECDB00B0FFD1 /* SignUpView.swift */,
-				E9E36BEE2A0FED4A0045ECC9 /* NameView.swift */,
-				E92A5A972A12E0CC00B0FFD1 /* EmailView.swift */,
-				E92A5A992A12E23400B0FFD1 /* PasswordView.swift */,
-				E9E36BF22A1156CB0045ECC9 /* HomeView.swift */,
-				E92A5A9F2A155D5300B0FFD1 /* MenuView.swift */,
-				E92A5AB22A19382F00B0FFD1 /* ItemView.swift */,
-				E92A5AA32A15784600B0FFD1 /* UserProfileView.swift */,
-				E92A5A952A12DECC00B0FFD1 /* PrivacyPolicyView.swift */,
-				E92A5AA12A155F9800B0FFD1 /* HeaderView.swift */,
+				E90C929C2A2F952400908B4A /* Onboarding */,
+				E90C929D2A2F95A100908B4A /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,15 +217,13 @@
 			children = (
 				E92A5A892A12B72700B0FFD1 /* Info.plist */,
 				E980FCDD2A003AA900D8840B /* RestaurantApp.swift */,
-				E92A5A802A1183E800B0FFD1 /* SessionManager.swift */,
-				E92A5A9D2A12EE9D00B0FFD1 /* RegistrationManager.swift */,
-				E92A5AA52A17E06300B0FFD1 /* FetchedObjects.swift */,
-				E92A5AA72A17E07200B0FFD1 /* Persistence.swift */,
 				E92A5AAA2A17E18000B0FFD1 /* Views */,
+				E90C92A12A2FC63E00908B4A /* ViewModels */,
 				E92A5AA92A17E17000B0FFD1 /* Models */,
-				E9E36BF62A117A460045ECC9 /* Components */,
+				E90C92A22A2FC65F00908B4A /* Helpers */,
+				E9E36BF62A117A460045ECC9 /* Styles */,
 				E92A5A842A12B41500B0FFD1 /* Fonts */,
-				E92A5AAF2A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld */,
+				E92A5AAF2A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld */,
 				E980FCE12A003AAB00D8840B /* Assets.xcassets */,
 				E980FCE32A003AAB00D8840B /* Preview Content */,
 			);
@@ -166,14 +238,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E9E36BF62A117A460045ECC9 /* Components */ = {
+		E9E36BF62A117A460045ECC9 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
 				E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */,
 				E9E36BF92A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift */,
 				E92A5A932A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift */,
 			);
-			path = Components;
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +342,7 @@
 				E92A5AA42A15784600B0FFD1 /* UserProfileView.swift in Sources */,
 				E92A5A942A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift in Sources */,
 				E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */,
-				E92A5AB12A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld in Sources */,
+				E92A5AB12A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld in Sources */,
 				E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */,
 				E980FCEC2A02898000D8840B /* OnboardingView.swift in Sources */,
 			);
@@ -409,6 +481,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,6 +511,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,13 +549,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E92A5AAF2A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodeld */ = {
+		E92A5AAF2A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				E92A5AB02A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodel */,
 			);
 			currentVersion = E92A5AB02A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodel */;
-			path = ExampleDatabase.xcdatamodeld;
+			path = MenuDatabase.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
