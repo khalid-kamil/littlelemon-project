@@ -10,8 +10,6 @@ import SwiftUI
 struct SplitBillView: View {
     @Environment(\.dismiss) var dismiss
     
-//    @FocusState private var amountIsFocused: Bool
-    
     var billAmount: Double
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 10
@@ -37,8 +35,6 @@ struct SplitBillView: View {
             Form {
                 Section {
                     Text(billAmount, format: .currency(code: Locale.current.currency?.identifier ?? "GBP"))
-//                        .keyboardType(.decimalPad)
-//                        .focused($amountIsFocused)
                     
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2..<100) {
@@ -73,19 +69,10 @@ struct SplitBillView: View {
             .navigationTitle("Split the bill")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-//                ToolbarItemGroup(placement: .keyboard) {
-//                    Spacer()
-//                    Button("Done") {
-//                        amountIsFocused = false
-//                    }
-//                }
                 ToolbarItemGroup(placement: .cancellationAction) {
                     Button("Cancel") {
                                 dismiss()
                             }
-//                            .font(.title)
-//                            .padding()
-//                            .background(.black)
                 }
             }
         }

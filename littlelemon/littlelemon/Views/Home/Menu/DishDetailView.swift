@@ -10,21 +10,65 @@ import SwiftUI
 struct DishDetailView: View {
     @State var showSplitBillView = false
     @State var showAlert = false
+    @State var favourite = false
     var dish: Dish
     
     var body: some View {
-        VStack {
-            dishImage
-            dishName
-            dishDescription
-            dishPrice
-            splitTheBill
-            Spacer()
-            addToBag
+        NavigationStack {
+            VStack {
+                dishImage
+                HStack {
+                    VStack(alignment: .leading) {
+                        dishName
+                        dishCategory
+                        dishPrice
+                        dishDescription
+                    }
+                    Spacer()
+                }
+                .padding(.leading, 12)
+                Spacer()
+                splitTheBill
+                addToBag
+            }
+            .ignoresSafeArea(edges: .top)
         }
-        .ignoresSafeArea(edges: .top)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    favourite.toggle()
+                // TODO: Implement add to favourites
+                } label: {
+                    Image(systemName: favourite ? "star.fill" : "star")
+                        .foregroundColor(Color("Primary 2"))
+                }
+            }
+        }
     }
 }
+
+private extension DishDetailView {
+    var dishImage: some View {
+            AsyncImage(url: URL(string: dish.image!)) { image in
+                image.resizable()
+                    .scaledToFill()
+                    .overlay(alignment: .top) {
+                        Rectangle()                         // Shapes are resizable by default
+                                .foregroundColor(.clear)
+                                .frame(height: 200)// Making rectangle transparent
+                                .background(LinearGradient(gradient: Gradient(colors: [.white.opacity(0.7), .clear]), startPoint: .top, endPoint: .bottom))
+                    }
+            } placeholder: {
+                ZStack {
+                    Color.gray
+                        .opacity(30)
+                    ProgressView()
+                }
+            }
+            .frame(maxHeight: 300)
+    }
+}
+
 
 private extension DishDetailView {
     var dishName: some View {
@@ -32,34 +76,24 @@ private extension DishDetailView {
             .font(.title)
             .fontWeight(.semibold)
             .foregroundColor(Color("Primary 1"))
+            .padding(.top, 16)
     }
 }
 
 private extension DishDetailView {
-    var dishImage: some View {
-        AsyncImage(url: URL(string: dish.image!)) { image in
-            image.resizable()
-                .scaledToFill()
-                .overlay(alignment: .bottomTrailing) {
-                    Text(dish.category!)
-                        .sectionCategoryStyle()
-                        .foregroundColor(Color("Secondary 4"))
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 8)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(Color("Primary 2"))
-                        }
-                        .padding(8)
-                }
-        } placeholder: {
-            ZStack {
-                Color.gray
-                    .opacity(30)
-                ProgressView()
-            }
-        }
-        .frame(maxHeight: 300)
+    var dishCategory: some View {
+        Text(dish.category!)
+            .sectionCategoryStyle()
+            .foregroundColor(Color("Primary 2"))
+            .padding(.top, 2)
+    }
+}
+
+private extension DishDetailView {
+    var dishPrice: some View {
+        Text("\(PersistenceController.formatPrice(dish.price!))")
+            .highlightTextStyle()
+            .padding(.top, 2)
     }
 }
 
@@ -67,19 +101,7 @@ private extension DishDetailView {
     var dishDescription: some View {
         Text("\(dish.dishDescription!)")
             .paragraphTextStyle()
-    }
-}
-
-private extension DishDetailView {
-    var dishPrice: some View {
-        HStack {
-            Text("Price:")
-            Text("\(PersistenceController.formatPrice(dish.price!))")
-                .highlightTextStyle()
-        }
-        .leadTextStyle()
-        .padding()
-        .frame(maxWidth: 300)
+            .padding(.top, 2)
     }
 }
 
@@ -88,6 +110,7 @@ private extension DishDetailView {
         Button("Split the bill") {
             showSplitBillView.toggle()
         }
+        .padding(.top, 2)
         .sheet(isPresented: $showSplitBillView) {
             SplitBillView(billAmount: Double(dish.price!)!)
         }
