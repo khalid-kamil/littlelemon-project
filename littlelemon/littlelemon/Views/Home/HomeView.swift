@@ -17,6 +17,10 @@ struct HomeView: View {
                 .tabItem {
                     Label("Menu", systemImage: "menucard")
                 }
+            GameView()
+                .tabItem {
+                    Label("Rewards", systemImage: "dice")
+                }
             UserProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
