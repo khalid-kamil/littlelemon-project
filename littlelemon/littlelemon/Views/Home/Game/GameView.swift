@@ -15,12 +15,13 @@ struct GameView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var userScore = 0
+    @State private var remainingQuestions = 8
     
     var body: some View {
         ZStack {
             RadialGradient(stops: [
-                .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
-                .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
+                .init(color: Color("Primary 1"), location: 0.3),
+                .init(color: Color("Primary 2"), location: 0.3),
             ], center: .top, startRadius: 200, endRadius: 400)
             .ignoresSafeArea()
             
@@ -63,7 +64,6 @@ struct GameView: View {
                 Spacer()
                 Spacer()
                 Text("Score: \(userScore)")
-                    .foregroundColor(.white)
                     .font(.title.bold())
                 Spacer()
             }
@@ -75,9 +75,17 @@ struct GameView: View {
         } message: {
             Text(scoreMessage)
         }
+        .alert("Game Over", isPresented: .constant(remainingQuestions == 0)) {
+            Button("Reset", action: reset)
+        } message: {
+            Text(scoreMessage)
+        }
     }
     
     func flagTapped(_ number: Int) {
+        if remainingQuestions == 0 {
+            return
+        }
         if number == correctAnswer {
             scoreTitle = "Correct"
             userScore += 1
@@ -86,13 +94,20 @@ struct GameView: View {
             scoreTitle = "Wrong"
             scoreMessage = "That's the flag of \(countries[number]). Your score is \(userScore)"
         }
-        
+        remainingQuestions -= 1
         showingScore = true
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    func reset() {
+        countries.shuffle()
+        correctAnswer = Int.random(in: 0...2)
+        remainingQuestions = 8
+        userScore = 0
     }
     
 }
