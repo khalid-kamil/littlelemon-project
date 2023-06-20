@@ -189,14 +189,60 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E92A5AAA2A17E18000B0FFD1 /* Views */ = {
+		E92A5AAA2A17E18000B0FFD1 /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				E92A5A822A11860800B0FFD1 /* MainAppView.swift */,
 				E90C929C2A2F952400908B4A /* Onboarding */,
 				E90C929D2A2F95A100908B4A /* Home */,
 			);
-			path = Views;
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E92D01FC2A42485200C7EA32 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E980FCDD2A003AA900D8840B /* RestaurantApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E92D01FD2A42485300C7EA32 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E92D01FF2A42485400C7EA32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E92D02032A42494E00C7EA32 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E92D02052A42495E00C7EA32 /* Authentication */,
+				E92D02042A42495500C7EA32 /* Profile */,
+				E92A5AAA2A17E18000B0FFD1 /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E92D02042A42495500C7EA32 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E92D02052A42495E00C7EA32 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		E980FCD12A003AA900D8840B = {
@@ -219,8 +265,10 @@
 			isa = PBXGroup;
 			children = (
 				E92A5A892A12B72700B0FFD1 /* Info.plist */,
-				E980FCDD2A003AA900D8840B /* RestaurantApp.swift */,
-				E92A5AAA2A17E18000B0FFD1 /* Views */,
+				E92D01FC2A42485200C7EA32 /* App */,
+				E92D02032A42494E00C7EA32 /* Core */,
+				E92D01FD2A42485300C7EA32 /* Components */,
+				E92D01FF2A42485400C7EA32 /* Model */,
 				E90C92A12A2FC63E00908B4A /* ViewModels */,
 				E92A5AA92A17E17000B0FFD1 /* Models */,
 				E90C92A22A2FC65F00908B4A /* Helpers */,
