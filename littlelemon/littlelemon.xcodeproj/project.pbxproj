@@ -25,6 +25,8 @@
 		E92A5AAE2A17E1D400B0FFD1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAD2A17E1D400B0FFD1 /* MenuItem.swift */; };
 		E92A5AB12A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AAF2A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld */; };
 		E92A5AB32A19382F00B0FFD1 /* DishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A5AB22A19382F00B0FFD1 /* DishDetailView.swift */; };
+		E92D02072A424A3B00C7EA32 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D02062A424A3B00C7EA32 /* NewLoginView.swift */; };
+		E92D02092A424E8C00C7EA32 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D02082A424E8C00C7EA32 /* InputView.swift */; };
 		E980FCDE2A003AA900D8840B /* RestaurantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E980FCDD2A003AA900D8840B /* RestaurantApp.swift */; };
 		E980FCE22A003AAB00D8840B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE12A003AAB00D8840B /* Assets.xcassets */; };
 		E980FCE52A003AAB00D8840B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E980FCE42A003AAB00D8840B /* Preview Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		E92A5AAD2A17E1D400B0FFD1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		E92A5AB02A17F1B700B0FFD1 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
 		E92A5AB22A19382F00B0FFD1 /* DishDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailView.swift; sourceTree = "<group>"; };
+		E92D02062A424A3B00C7EA32 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
+		E92D02082A424E8C00C7EA32 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E980FCDA2A003AA900D8840B /* littlelemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = littlelemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E980FCDD2A003AA900D8840B /* RestaurantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp.swift; sourceTree = "<group>"; };
 		E980FCE12A003AAB00D8840B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		E92D01FD2A42485300C7EA32 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E92D02082A424E8C00C7EA32 /* InputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 		E92D02052A42495E00C7EA32 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E92D02062A424A3B00C7EA32 /* NewLoginView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -266,8 +272,8 @@
 			children = (
 				E92A5A892A12B72700B0FFD1 /* Info.plist */,
 				E92D01FC2A42485200C7EA32 /* App */,
-				E92D02032A42494E00C7EA32 /* Core */,
 				E92D01FD2A42485300C7EA32 /* Components */,
+				E92D02032A42494E00C7EA32 /* Core */,
 				E92D01FF2A42485400C7EA32 /* Model */,
 				E90C92A12A2FC63E00908B4A /* ViewModels */,
 				E92A5AA92A17E17000B0FFD1 /* Models */,
@@ -380,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92A5AAE2A17E1D400B0FFD1 /* MenuItem.swift in Sources */,
+				E92D02092A424E8C00C7EA32 /* InputView.swift in Sources */,
 				E92A5A982A12E0CC00B0FFD1 /* EmailView.swift in Sources */,
 				E92A5A9C2A12ECDB00B0FFD1 /* SignUpView.swift in Sources */,
 				E92A5AA82A17E07200B0FFD1 /* Persistence.swift in Sources */,
@@ -400,6 +407,7 @@
 				E92A5AA42A15784600B0FFD1 /* UserProfileView.swift in Sources */,
 				E92A5A942A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift in Sources */,
 				E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */,
+				E92D02072A424A3B00C7EA32 /* NewLoginView.swift in Sources */,
 				E92A5AB12A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld in Sources */,
 				E92A5A812A1183E800B0FFD1 /* SessionManager.swift in Sources */,
 				E9DB9D702A2FCDCC00FD8A2D /* SplitBillView.swift in Sources */,
