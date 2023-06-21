@@ -1,7 +1,4 @@
 //
-//  InputView.swift
-//  littlelemon
-//
 //  Created by Khalid Kamil on 20/06/2023.
 //
 
@@ -11,7 +8,7 @@ struct InputView: View {
     @Binding var text: String
     let title: String
     let placeholder: String
-    let isSecureField = false
+    var isSecureField = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
