@@ -39,6 +39,7 @@
 		E9E36BF52A1158B60045ECC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF42A1158B50045ECC9 /* LoginView.swift */; };
 		E9E36BF82A117A7C0045ECC9 /* LittleLemonButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */; };
 		E9E36BFA2A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF92A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift */; };
+		E9E4CDCA2A438B5300913DCA /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E4CDC92A438B5300913DCA /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		E9E36BF42A1158B50045ECC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonButtonStyle.swift; sourceTree = "<group>"; };
 		E9E36BF92A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonTextFieldStyle.swift; sourceTree = "<group>"; };
+		E9E4CDC92A438B5300913DCA /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				E92D02062A424A3B00C7EA32 /* NewLoginView.swift */,
+				E9E4CDC92A438B5300913DCA /* RegistrationView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				E92A5AA02A155D5300B0FFD1 /* MenuView.swift in Sources */,
 				E980FCDE2A003AA900D8840B /* RestaurantApp.swift in Sources */,
 				E92A5A832A11860800B0FFD1 /* MainAppView.swift in Sources */,
+				E9E4CDCA2A438B5300913DCA /* RegistrationView.swift in Sources */,
 				E9E36BF32A1156CB0045ECC9 /* HomeView.swift in Sources */,
 				E92A5A9E2A12EE9D00B0FFD1 /* RegistrationManager.swift in Sources */,
 				E9E36BF82A117A7C0045ECC9 /* LittleLemonButtonStyle.swift in Sources */,

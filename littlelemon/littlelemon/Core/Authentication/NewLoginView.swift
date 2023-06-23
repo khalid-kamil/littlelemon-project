@@ -17,6 +17,7 @@ struct NewLoginView: View {
                     .scaledToFit()
                     .frame(maxWidth: 100, maxHeight: 120)
                     .padding(.vertical, 32)
+                
                 // form fields
                 VStack(spacing: 24) {
                     InputView(text: $email,
@@ -63,13 +64,19 @@ struct NewLoginView: View {
                 Spacer()
                 
                 // sign up button
-                HStack(spacing: 0) {
-                    Text("Don't have an account? ")
-                    Text("Sign up!")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(.systemBlue))
+                NavigationLink {
+                    RegistrationView()
+                        .navigationBarBackButtonHidden()
+                } label: {
+                    HStack(spacing: 0) {
+                        Text("Don't have an account? ")
+                        Text("Sign up")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(.systemBlue))
+                    }
+                    .font(.system(size: 14))
                 }
-                .font(.system(size: 14))
+                
             }
         }
     }
