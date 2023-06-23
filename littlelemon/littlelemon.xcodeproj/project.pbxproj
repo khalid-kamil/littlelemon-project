@@ -40,6 +40,9 @@
 		E9E36BF82A117A7C0045ECC9 /* LittleLemonButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */; };
 		E9E36BFA2A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E36BF92A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift */; };
 		E9E4CDCA2A438B5300913DCA /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E4CDC92A438B5300913DCA /* RegistrationView.swift */; };
+		E9E4CDCC2A45EC5E00913DCA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E4CDCB2A45EC5E00913DCA /* ProfileView.swift */; };
+		E9E4CDCE2A45EF9900913DCA /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E4CDCD2A45EF9900913DCA /* SettingsRowView.swift */; };
+		E9E4CDD02A45F50000913DCA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E4CDCF2A45F50000913DCA /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		E9E36BF72A117A7C0045ECC9 /* LittleLemonButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonButtonStyle.swift; sourceTree = "<group>"; };
 		E9E36BF92A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonTextFieldStyle.swift; sourceTree = "<group>"; };
 		E9E4CDC92A438B5300913DCA /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E9E4CDCB2A45EC5E00913DCA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E9E4CDCD2A45EF9900913DCA /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		E9E4CDCF2A45F50000913DCA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E92D02082A424E8C00C7EA32 /* InputView.swift */,
+				E9E4CDCD2A45EF9900913DCA /* SettingsRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 		E92D01FF2A42485400C7EA32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9E4CDCF2A45F50000913DCA /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +249,7 @@
 		E92D02042A42495500C7EA32 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E9E4CDCB2A45EC5E00913DCA /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 				E92D02092A424E8C00C7EA32 /* InputView.swift in Sources */,
 				E92A5A982A12E0CC00B0FFD1 /* EmailView.swift in Sources */,
 				E92A5A9C2A12ECDB00B0FFD1 /* SignUpView.swift in Sources */,
+				E9E4CDD02A45F50000913DCA /* User.swift in Sources */,
 				E92A5AA82A17E07200B0FFD1 /* Persistence.swift in Sources */,
 				E92A5A9A2A12E23400B0FFD1 /* PasswordView.swift in Sources */,
 				E9E36BFA2A117A9E0045ECC9 /* LittleLemonTextFieldStyle.swift in Sources */,
@@ -409,7 +419,9 @@
 				E92A5A9E2A12EE9D00B0FFD1 /* RegistrationManager.swift in Sources */,
 				E9E36BF82A117A7C0045ECC9 /* LittleLemonButtonStyle.swift in Sources */,
 				E92A5AA42A15784600B0FFD1 /* UserProfileView.swift in Sources */,
+				E9E4CDCE2A45EF9900913DCA /* SettingsRowView.swift in Sources */,
 				E92A5A942A12BF6F00B0FFD1 /* LittleLemonTextStyles.swift in Sources */,
+				E9E4CDCC2A45EC5E00913DCA /* ProfileView.swift in Sources */,
 				E9E36BEF2A0FED4A0045ECC9 /* NameView.swift in Sources */,
 				E92D02072A424A3B00C7EA32 /* NewLoginView.swift in Sources */,
 				E92A5AB12A17F1B700B0FFD1 /* MenuDatabase.xcdatamodeld in Sources */,
