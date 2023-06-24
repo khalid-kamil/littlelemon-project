@@ -57,8 +57,49 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func deleteAccount() {
-        print("Deleting account...")
+    func deleteAccount(completion: @escaping (Result<Bool, Error>) -> Void) {
+        if let user = Auth.auth().currentUser {
+            user.delete { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    self.userSession = nil
+                    self.currentUser = nil
+                }
+            }
+        }
+        
+        
+    }
+    
+    func deleteUserData(completion: @escaping (Result<Bool, Error>) -> Void) {
+        if let uid = Auth.auth().currentUser?.uid {
+            let reference = Firestore.firestore().collection("users").document(uid)
+            reference.delete { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(true))
+                }
+            }
+        }
+    }
+    
+    func reauthenticateAccount(with password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        if let user = Auth.auth().currentUser {
+            let credential = EmailAuthProvider.credential(withEmail: user.email ?? "", password: password)
+            user.reauthenticate(with: credential) { _, error in
+                if let error = error {
+                    print("DEBUG: Failed to reauthenticate account with error \(error.localizedDescription)")
+                    completion(.failure(error))
+                } else {
+                    // user reauthenticated
+                    completion(.success(true))
+                }
+            }
+            
+        }
+
     }
     
     func fetchUser() async {
