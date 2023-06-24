@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct RestaurantApp: App {
+    @StateObject var authViewModel = AuthViewModel()
     var body: some Scene {
         WindowGroup {
             MainAppView()
+                .environmentObject(authViewModel)
         }
     }
 }
