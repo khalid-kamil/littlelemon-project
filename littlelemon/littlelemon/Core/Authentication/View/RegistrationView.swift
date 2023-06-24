@@ -38,10 +38,29 @@ struct RegistrationView: View {
                           placeholder: "Enter your password",
                           isSecureField: true)
                 
-                InputView(text: $confirmPassword,
-                          title: "Confirm Password",
-                          placeholder: "Re-enter your password",
-                          isSecureField: true)
+                ZStack(alignment: .bottomTrailing) {
+                    InputView(text: $confirmPassword,
+                              title: "Confirm Password",
+                              placeholder: "Re-enter your password",
+                              isSecureField: true)
+                    
+                    if !password.isEmpty && !confirmPassword.isEmpty {
+                        if password == confirmPassword {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .padding(.bottom, 8)
+                        } else {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.red)
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .padding(.bottom, 8)
+                        }
+                    }
+                }
+                
             }
             .padding(.horizontal)
             .padding(.top, 12)
@@ -63,6 +82,8 @@ struct RegistrationView: View {
             .background(Color(.systemBlue))
             .cornerRadius(12)
             .padding(.top, 16)
+            .disabled(!formIsValid)
+            .opacity(formIsValid ? 1 : 0.3)
             
             Spacer()
             
@@ -81,6 +102,17 @@ struct RegistrationView: View {
 
             
         }
+    }
+}
+
+extension RegistrationView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !fullname.isEmpty
+        && !password.isEmpty
+        && password.count > 5
+        && confirmPassword == password
     }
 }
 
