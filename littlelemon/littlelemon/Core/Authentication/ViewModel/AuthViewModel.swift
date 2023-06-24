@@ -20,7 +20,13 @@ class AuthViewModel: ObservableObject {
     }
     
     func signIn(withEmail email: String, password: String) async throws {
-        print("Signing in...")
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.userSession = result.user
+            await fetchUser()
+        } catch {
+            print("DEBUG: Failed to log in with error \(error.localizedDescription)")
+        }
     }
     
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
@@ -38,7 +44,13 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
-        print("Signing out...")
+        do {
+            try Auth.auth().signOut() // signs out user on backend
+            self.userSession = nil // wipes user session and navigates to loaign screen
+            self.currentUser = nil // wipes current user data model
+        } catch {
+            print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
+        }
     }
     
     func deleteAccount() {
