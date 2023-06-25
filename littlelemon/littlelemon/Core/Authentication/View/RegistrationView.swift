@@ -15,10 +15,7 @@ struct RegistrationView: View {
     var body: some View {
         VStack {
             // image
-            Image("iccoLogo")
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 100, maxHeight: 120)
+            Image("Logo")
                 .padding(.vertical, 32)
             
             // form fields
@@ -65,6 +62,7 @@ struct RegistrationView: View {
             .padding(.horizontal)
             .padding(.top, 12)
             
+            
             // sign up button
             Button {
                 Task {
@@ -99,7 +97,6 @@ struct RegistrationView: View {
                 }
                 .font(.system(size: 14))
             }
-
             
         }
     }

@@ -13,10 +13,7 @@ struct NewLoginView: View {
         NavigationStack {
             VStack {
                 // image
-                Image("iccoLogo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 100, maxHeight: 120)
+                Image("Logo")
                     .padding(.vertical, 32)
                 
                 // form fields
@@ -35,15 +32,17 @@ struct NewLoginView: View {
                 .padding(.top, 12)
                 
                 // forgot password?
-                Button {
-                    print("Resetting user password...")
-                } label: {
-                    Text("Forgot Password?")
-                        .font(.footnote)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(.systemBlue))
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding([.top, .trailing], 16)
+                HStack {
+                    Spacer()
+                    Button {
+                        print("Resetting user password...")
+                    } label: {
+                        Text("Forgot Password?")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(.systemBlue))
+                            .padding([.top, .trailing], 16)
+                    }
                 }
                 
                 // sign in button
@@ -80,6 +79,7 @@ struct NewLoginView: View {
                             .foregroundColor(Color(.systemBlue))
                     }
                     .font(.system(size: 14))
+                    .padding(.bottom)
                 }
                 
             }
