@@ -11,6 +11,10 @@ struct ProfileView: View {
     @State private var reauthenticationFailed = false
     @State private var errorText = ""
     @State private var password = ""
+    @State private var orderUpdates = true
+    @State private var passwordUpdates = true
+    @State private var offersUpdates = true
+    @State private var newsletterUpdates = true
     
     var body: some View {
         if let user = authViewModel.currentUser {
@@ -48,6 +52,26 @@ struct ProfileView: View {
                         Text("1.0.0")
                             .font(.subheadline)
                             .foregroundColor(.gray)
+                    }
+                }
+                
+                
+                Section("Notifications") {
+                    Toggle(isOn: $orderUpdates) {
+                        Text("Order Status")
+                        
+                    }
+                    Toggle(isOn: $passwordUpdates) {
+                        Text("Password Changes")
+                        
+                    }
+                    Toggle(isOn: $offersUpdates) {
+                        Text("Special Offers")
+                        
+                    }
+                    Toggle(isOn: $newsletterUpdates) {
+                        Text("Newsletter")
+                        
                     }
                 }
                 
@@ -132,5 +156,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(AuthViewModel())
     }
 }

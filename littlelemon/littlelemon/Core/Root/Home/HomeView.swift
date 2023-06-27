@@ -21,7 +21,7 @@ struct HomeView: View {
                 .tabItem {
                     Label("Rewards", systemImage: "dice")
                 }
-            UserProfileView()
+            ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
                 }
@@ -32,6 +32,5 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(SessionManager())
     }
 }

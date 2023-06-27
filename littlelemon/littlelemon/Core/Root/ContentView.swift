@@ -10,10 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     
+    init() {
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().backgroundColor = .white
+    }
+    
     var body: some View {
         Group {
             if authViewModel.userSession != nil {
-                ProfileView()
+                HomeView()
             } else {
                 NewLoginView()
             }
@@ -24,5 +29,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AuthViewModel())
     }
 }
